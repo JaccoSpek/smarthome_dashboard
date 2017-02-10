@@ -1,0 +1,20 @@
+<h3>Temperatures history</h3>
+<div class="form-inline">
+	<div class="form-group">
+		<label for="from">From:</label>
+		<input id="from" class="form-control" [(ngModel)]="start_date" type="datetime-local">
+	</div>
+	<div class="form-group">
+		<label for="to">To:</label>
+		<input id="to" class="form-control" [(ngModel)]="end_date" type="datetime-local">
+	</div>
+	<div class="form-group">
+		<button type="button" class="btn btn-default" (click)="getHistories(sensors)">Get data</button>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-6" *ngFor="let sensor of sensors">
+		<h3>{{sensor.display_name}}</h3>
+		<chart *ngIf="sensor.table_data" [type]="table_type" [options]="table_options" [data]="sensor.table_data"></chart>
+	</div>
+</div>

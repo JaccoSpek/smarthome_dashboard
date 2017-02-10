@@ -1,0 +1,26 @@
+<h3>Connected sensors</h3>
+<table class="table">
+	<tr>
+		<th>Sensor ID</th>
+		<th>Display name</th>
+		<th>Address</th>
+		<th>Active</th>
+		<th>Update</th>
+	</tr>
+	<tr *ngFor="let sensor of sensors">
+		<td><label>{{sensor.sensor_id}}</label></td>
+		<td><input class="form-control" [(ngModel)]="sensor.display_name" type="text"></td>
+		<td><input class="form-control" [(ngModel)]="sensor.address" type="text"></td>
+		<td><input type="checkbox" [(ngModel)]="sensor.active" /></td>
+		<td><button type="button" class="btn btn-primary" (click)="saveSensor(sensor)"><span *ngIf="sensor.id != null">Update</span><span *ngIf="sensor.id == null">Save</span></button></td>
+	</tr>
+</table>
+<div class="form">
+	<div class="form-group">
+		<button type="button" class="btn btn-primary" (click)="saveSensors(sensors)">Save all changes</button>
+		<button type="button" class="btn btn-primary" (click)="detectSensor()">Detect sensors</button>
+	</div>
+	<div class="form-group">
+		<button type="button" class="btn btn-default" (click)="addSensor()">Add remote sensor</button>
+	</div>
+</div>

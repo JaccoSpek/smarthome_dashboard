@@ -1,0 +1,11 @@
+<div class="container">
+	<h1>{{title}}</h1>
+
+	<ul class="nav nav-pills">
+	    <li role="presentation" routerLinkActive="active"><a routerLink="/current">Current Temperatures</a></li>
+	    <li role="presentation" routerLinkActive="active"><a routerLink="/history">Temperature history</a></li>
+	    <li role="presentation" routerLinkActive="active"><a routerLink="/sensors"><span class="glyphicon glyphicon-cog"></span></a></li>
+	</ul>
+	
+    <router-outlet></router-outlet>
+</div>
